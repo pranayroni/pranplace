@@ -17,7 +17,7 @@ window.addEventListener('resize', function() {
   }
   else {
     for(let i=0 ; i < personalLogo.length; i++){
-      personalLogo[i].textContent = 'Pranay Roni'; // replace with the original content
+      personalLogo[i].textContent = 'pran.place'; // replace with the original content
     }
   }
 
