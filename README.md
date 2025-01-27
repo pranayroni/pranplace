@@ -1,2 +1,0 @@
-# pranplace
-my personal website
