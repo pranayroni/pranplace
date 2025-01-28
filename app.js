@@ -65,3 +65,37 @@ icon.onclick = function(){
   }
 }
 }
+
+const profilePic = document.querySelector('.about-me__picture--mask');
+
+profilePic.addEventListener('mouseenter', (e) => {
+    const rect = profilePic.getBoundingClientRect();
+    
+    // Remove all previous glow classes
+    profilePic.classList.remove('glow-left', 'glow-right', 'glow-top', 'glow-bottom');
+    
+    // Calculate entry point
+    const x = e.clientX - rect.left; // x position within the element
+    const y = e.clientY - rect.top;  // y position within the element
+    
+    // Compare entry point to determine which side was entered
+    if (x < rect.width / 4) {
+        profilePic.classList.add('glow-left');
+    } else if (x > (rect.width * 3) / 4) {
+        profilePic.classList.add('glow-right');
+    } else if (y < rect.height / 4) {
+        profilePic.classList.add('glow-top');
+    } else {
+        profilePic.classList.add('glow-bottom');
+    }
+});
+
+profilePic.addEventListener('mouseleave', () => {
+    profilePic.classList.remove('glow-left', 'glow-right', 'glow-top', 'glow-bottom');
+});
+
+const personalLogo = document.querySelector('.personal__logo');
+
+personalLogo.addEventListener('click', () => {
+    personalLogo.classList.toggle('locked');
+});

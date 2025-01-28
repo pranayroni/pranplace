@@ -334,12 +334,52 @@ nav {
   margin: 0 12px;
   font-weight: bold;
   cursor: default;
-  transform: all .2s ease-in-out;
-  transition: none;
+  position: relative;
 }
 
+/* Preview state on hover */
 .personal__logo:hover {
+  transform: rotate(-5deg);
+}
+
+.personal__logo:hover::before,
+.personal__logo:hover::after {
+  content: "pran.place";
+  position: absolute;
+  color: var(--purple);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.personal__logo:hover::before {
+  right: 100%;
+}
+
+.personal__logo:hover::after {
+  left: 100%;
+}
+
+/* Locked state when clicked */
+.personal__logo.locked {
   transform: rotate(-12deg);
+}
+
+.personal__logo.locked::before,
+.personal__logo.locked::after {
+  content: "pran.placepran.placepran.placepran.place";
+  position: absolute;
+  color: var(--purple);
+  opacity: 0.5;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.personal__logo.locked::before {
+  right: 100%;
+}
+
+.personal__logo.locked::after {
+  left: 100%;
 }
 
 .text-purple {
@@ -412,17 +452,53 @@ section:nth-child(even) {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 28px;
-  transition: all 300ms ease;
+  transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 400ms cubic-bezier(0.4, 0, 0.2, 1);
   animation: animate-profile-picture 1000ms 200ms backwards;
   box-shadow: var(--pfp-shadow);
 }
 
 .about-me__picture--mask:hover {
   transform: scale(1.05);
+  box-shadow: 0px 0px 20px 9px rgb(255 217 248), 6px 6px 20px 11px rgb(0 0 0 / 9%);
+  transition: all 300ms ease;
 }
 
 .dark-mode .about-me__picture--mask:hover {
   transform: scale(1.05);
+  box-shadow: 11px 11px 8px 0 rgba(0, 0, 0, 0.2), 6px 6px 20px 11px rgb(0 0 0 / 9%);
+  transition: all 300ms ease;
+}
+
+.glow-left {
+    box-shadow: -10px 0 12px 3px rgba(255, 217, 248, 0.5), 6px 6px 20px 11px rgb(0 0 0 / 9%);
+    transform: scale(1.05);
+    transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glow-right {
+    box-shadow: 10px 0 12px 3px rgba(255, 217, 248, 0.5), 6px 6px 20px 11px rgb(0 0 0 / 9%);
+    transform: scale(1.05);
+    transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glow-top {
+    box-shadow: 0 -10px 12px 3px rgba(255, 217, 248, 0.5), 6px 6px 20px 11px rgb(0 0 0 / 9%);
+    transform: scale(1.05);
+    transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glow-bottom {
+    box-shadow: 0 10px 12px 3px rgba(255, 217, 248, 0.5), 6px 6px 20px 11px rgb(0 0 0 / 9%);
+    transform: scale(1.05);
+    transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark-mode .glow-left,
+.dark-mode .glow-right,
+.dark-mode .glow-top,
+.dark-mode .glow-bottom {
+    box-shadow: 11px 11px 8px 0 rgba(0, 0, 0, 0.2), 6px 6px 20px 11px rgb(0 0 0 / 9%);
 }
 
 @keyframes animate-profile-picture {
