@@ -112,3 +112,16 @@ const personalLogo = document.querySelector('.personal__logo');
 personalLogo.addEventListener('click', () => {
     personalLogo.classList.toggle('locked');
 });
+
+const pranayText = document.querySelector('.pranay-text');
+
+pranayText.addEventListener('mouseenter', () => {
+    pranayText.style.animation = 'none';
+    // Trigger reflow
+    void pranayText.offsetWidth;
+    pranayText.style.animation = 'wobble 0.6s ease-in-out';
+});
+
+pranayText.addEventListener('animationend', () => {
+    pranayText.style.animation = '';
+});
