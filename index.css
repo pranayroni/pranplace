@@ -370,7 +370,7 @@ nav {
 
 .personal__logo.locked::before,
 .personal__logo.locked::after {
-  content: "pran.placepran.placepran.placepran.place";
+  content: "pran.placepran.placepran.placepran.placepran.placepran.placepran.placepran.place";
   position: absolute;
   color: var(--purple);
   opacity: 0.5;
