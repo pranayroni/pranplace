@@ -335,6 +335,10 @@ nav {
   font-weight: bold;
   cursor: default;
   position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 /* Preview state on hover */
@@ -939,4 +943,13 @@ footer {
 /* For dark mode */
 .dark-mode .coming-soon {
     color: rgba(221, 221, 221, 0.2);
+}
+
+img[src*="sparkleT.gif"] {
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none;
 }
