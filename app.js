@@ -78,12 +78,25 @@ profilePic.addEventListener('mouseenter', (e) => {
     const x = e.clientX - rect.left; // x position within the element
     const y = e.clientY - rect.top;  // y position within the element
     
-    // Compare entry point to determine which side was entered
-    if (x < rect.width / 4) {
+    // Calculate relative position (0 to 1)
+    const relativeX = x / rect.width;
+    const relativeY = y / rect.height;
+    
+    // Determine the closest edge
+    const distToLeft = relativeX;
+    const distToRight = 1 - relativeX;
+    const distToTop = relativeY;
+    const distToBottom = 1 - relativeY;
+    
+    // Find the minimum distance
+    const minDist = Math.min(distToLeft, distToRight, distToTop, distToBottom);
+    
+    // Apply the appropriate glow
+    if (minDist === distToLeft) {
         profilePic.classList.add('glow-left');
-    } else if (x > (rect.width * 3) / 4) {
+    } else if (minDist === distToRight) {
         profilePic.classList.add('glow-right');
-    } else if (y < rect.height / 4) {
+    } else if (minDist === distToTop) {
         profilePic.classList.add('glow-top');
     } else {
         profilePic.classList.add('glow-bottom');
