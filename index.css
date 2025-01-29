@@ -762,9 +762,15 @@ body.dark-mode .tooltip .tooltiptext {
 }
 
 .project__description--link {
+  color: var(--purple);
   font-size: 20px;
   margin-right: 16px;
-  
+  transition: all 300ms ease;
+}
+
+.project__description--link:hover {
+  color: #7f669d;  /* slightly darker purple for hover state */
+  transform: translateY(-2px);
 }
 
 .project__description--title,
